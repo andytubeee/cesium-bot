@@ -11,7 +11,10 @@ const getNextCode = (date) => {
   const day = nextTuesday.getDate();
   const month = nextTuesday.getMonth() + 1;
   const { abs, floor, sin, cos } = Math;
-  return abs(floor(999999 * sin(cos(day + month))));
+  return {
+    nextTuesday: nextTuesday.toDateString(),
+    code: abs(floor(999999 * sin(cos(day + month)))),
+  };
 };
 
 module.exports = { getNextCode };
